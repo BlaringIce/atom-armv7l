@@ -1,12 +1,15 @@
 # atom-armv7l
-:wave: Hello! This repository contains several patched files and instructions that allow you to build and run Atom 1.23 on `armv7l` machines like Raspberry Pi's.
+:wave: Hello! This repository contains several patched files and instructions that allow you to build and run Atom 1.24.0 on `armv7l` machines like Raspberry Pi's.
 ## Building
 ### Gettings sources & building
 Firstly, install basic prerequisites as it described in [Atom Flight Manual](https://flight-manual.atom.io/hacking-atom/sections/hacking-on-atom-core/#building).
 
-Clone Atom sources from 1.23-releases branch and this repository, then merge them:
+Clone Atom sources and this repository, then merge them:
 ```
-git clone https://github.com/atom/atom.git -b 1.23-releases
+git clone https://github.com/atom/atom.git
+cd atom
+git checkout v1.24.0
+cd ..
 git clone https://github.com/hypersad/atom-armv7l.git
 cp -r atom-armv7l/script/* atom/script/
 rm -rf atom-armv7l
@@ -38,9 +41,7 @@ Generate startup blob from `startup.js` via `mksnapshot`:
 ```
 Send generated startup blob back to your `armv7l` machine. You could do it via `scp` too, for example:
 ```
-scp snapshot_blob.bin helix@192.168.1.30:/home/helix/atom/out/atom-1.23.2-armv7l/snapshot_blob.bin
+scp snapshot_blob.bin helix@192.168.1.30:/home/helix/atom/out/atom-1.24.0-armv7l/snapshot_blob.bin
 ```
 
 Now, you could try to launch Atom! :tada:
-## Notes
-This file was written on Raspberry Pi 3 Model B with Atom 1.23.2 :^)

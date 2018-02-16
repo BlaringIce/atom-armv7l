@@ -57,7 +57,9 @@ module.exports = function (packagedAppPath) {
         relativePath === path.join('..', 'node_modules', 'spelling-manager', 'node_modules', 'natural', 'lib', 'natural', 'index.js') ||
         relativePath === path.join('..', 'node_modules', 'tar', 'tar.js') ||
         relativePath === path.join('..', 'node_modules', 'temp', 'lib', 'temp.js') ||
-        relativePath === path.join('..', 'node_modules', 'tmp', 'lib', 'tmp.js')
+        relativePath === path.join('..', 'node_modules', 'tmp', 'lib', 'tmp.js') ||
+        relativePath === path.join('..', 'node_modules', 'tree-sitter', 'index.js') ||
+        relativePath === path.join('..', 'node_modules', 'winreg', 'lib', 'registry.js')
       )
     }
   }).then((snapshotScript) => {
@@ -81,9 +83,10 @@ module.exports = function (packagedAppPath) {
       {env: Object.assign({}, process.env, {ELECTRON_RUN_AS_NODE: 1})}
     )
 
-    // const generatedStartupBlobPath = path.join(CONFIG.buildOutputPath, 'snapshot_blob.bin')
-    console.log('Skipping generating startup blob, you must do it manually.'.gray)
+    console.log('Skipping generating startup blob, you must do it manually.'.red)
     /*
+    const generatedStartupBlobPath = path.join(CONFIG.buildOutputPath, 'snapshot_blob.bin')
+    console.log(`Generating startup blob at "${generatedStartupBlobPath}"`)
     childProcess.execFileSync(
       path.join(CONFIG.repositoryRootPath, 'script', 'node_modules', 'electron-mksnapshot', 'bin', 'mksnapshot'),
       [snapshotScriptPath, '--startup_blob', generatedStartupBlobPath]
