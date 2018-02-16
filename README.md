@@ -1,5 +1,7 @@
 # atom-armv7l
 :wave: Hello! This repository contains several patched files and instructions that allow you to build and run Atom 1.24.0 on `armv7l` machines like Raspberry Pi's.
+
+![Screenshot](https://raw.githubusercontent.com/hypersad/atom-armv7l/master/assets/screenshot.png)
 ## Building
 ### Gettings sources & building
 Firstly, install basic prerequisites as it described in [Atom Flight Manual](https://flight-manual.atom.io/hacking-atom/sections/hacking-on-atom-core/#building).
